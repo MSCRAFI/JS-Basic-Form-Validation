@@ -41,8 +41,7 @@ formElement.addEventListener('submit', (event) => {
                 formElement.innerHTML = signInHTML;
                 formElement.addEventListener('submit', (event) => {
                     event.preventDefault();
-                    // executing signin action function
-                    signInAction();
+                    signInAction(); // executing signin action function
                 });
             }, 2000);
   
