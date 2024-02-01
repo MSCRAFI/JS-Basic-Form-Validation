@@ -46,7 +46,7 @@ formElement.addEventListener('submit', (event) => {
                     event.preventDefault();
                     signInAction(); // executing signin action function
                 });
-            }, 2000);
+            }, 1000);
   
         }
         else {
