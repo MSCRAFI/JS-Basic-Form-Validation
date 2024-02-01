@@ -42,7 +42,7 @@ formElement.addEventListener('submit', (event) => {
                 formElement.addEventListener('submit', (event) => {
                     event.preventDefault();
                     // executing signin action function
-                    signInAction(usernameElement, passElement, warningElement);
+                    signInAction();
                 });
             }, 2000);
   
@@ -54,14 +54,17 @@ formElement.addEventListener('submit', (event) => {
 });
 
 // signin action function
-function signInAction(signInUserElement, signinPassElement, warningElement) {
+function signInAction() {
     // getting user and pass from html element
+    const signInUserElement = document.querySelector('.js-reg-username');
+    const signinPassElement = document.querySelector('.js-reg-pass');
+    const warningElement = document.querySelector('.js-warning');
     const signInUserName = signInUserElement.value;
     const signInPass = signinPassElement.value;
 
     // conditions for signin
     if (signInUserName === formObj.username && signInPass === formObj.pass) {
-        signInSuccess = `<p class="css-signin">${formObj.username}, You have successfully signed in</p>`;
+        const signInSuccess = `<p class="css-signin">${formObj.username}, You have successfully signed in</p>`;
 
 
         formElement.innerHTML = signInSuccess;
