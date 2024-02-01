@@ -9,7 +9,10 @@ formElement.addEventListener('submit', (event) => {
     const confirmPassElement = document.querySelector('.js-reg-confirm-pass'); // form confirm pass
     const warningElement = document.querySelector('.js-warning'); // form warning
     const usernameElement = document.querySelector('.js-reg-username'); //form username
-    formObj.username = usernameElement.value; // adding username to the object
+
+    if (usernameElement) { // username availablity condition
+        formObj.username = usernameElement.value; // adding username to the object
+    }
     if (emailElement) { // email availablity condition
         formObj.email = emailElement.value;
     }
@@ -28,7 +31,7 @@ formElement.addEventListener('submit', (event) => {
             <h3 class="css-heading">Sign In</h3>
             <div class="js-form">
             <p class="js-warning"></p>
-            <input type="text" placeholder="Username" class="js-reg-username css-input" id="signup-username" required> <br>
+            <input type="text" placeholder="Username" class="js-signin-username css-input" id="signup-username" required> <br>
             <input type="password" placeholder="Password" class="js-reg-pass css-input" id="signup-password" required> <br>
             <button type="submit" class="js-red-submit css-submit-btn">Sign in</button>
             </div>
@@ -55,11 +58,13 @@ formElement.addEventListener('submit', (event) => {
 // signin action function
 function signInAction() {
     // getting user and pass from html element
-    const signInUserElement = document.querySelector('.js-reg-username');
+    console.log(formObj);
+    const signInUserElement = document.querySelector('.js-signin-username');
     const signinPassElement = document.querySelector('.js-reg-pass');
     const warningElement = document.querySelector('.js-warning');
     const signInUserName = signInUserElement.value;
     const signInPass = signinPassElement.value;
+
 
     // conditions for signin
     if (signInUserName === formObj.username && signInPass === formObj.pass) {
